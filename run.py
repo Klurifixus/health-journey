@@ -12,6 +12,13 @@ GSPREAD_CLIENT = gspread.authorize(SCOPE_CREDS)
 SHEET = GSPREAD_CLIENT.open("health_calculator")
 
 def store_data_to_sheet(data):
+    try: 
+        SHEET.append_row(data)
+    except Exception as e:
+        print(f"An error occured while storing data to Google-sheet: {e}")
+        return False
+    return True
+    
     #Save data to Google-sheet
     worksheet = SHEET.worksheet("health_calculator")
     bmi =calculate_bmi(data['height'], data['weight'])
