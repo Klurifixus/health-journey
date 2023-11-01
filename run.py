@@ -1,3 +1,12 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+# Get user input
+def get_user_input():
+    name = input("Enter your name: ")
+    email = None
+    while True:
+        email = input("Enter your email: ")
+        if "@" in email and "." in email:
+            break
+        else:
+            print("Invalid email address. Please try again.")
+
+            
