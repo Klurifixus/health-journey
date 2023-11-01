@@ -44,7 +44,8 @@ return {
 def calculate_bmi(height, weight):
     return weight / (height ** 2)
 
-#Generate Advice:
+#Generate Advice BMI:
+
 def generate_advice(bmi):
     if bmi < 18.5:
         return "You are underweight. Consider consulting a nutritionist or a doctor."
@@ -54,3 +55,8 @@ def generate_advice(bmi):
         return "You are overweight. Consider adopting healthier eating habits and regular exercise."
     else:
         return "You are obese. It's important to consult a health professional."
+
+# Generate Advice on training habits:
+if data['training_habits'] == "n": 
+    advice_list.append("Regular exercise can greatly improve your health. Consider starting with light exercises.")
+       
