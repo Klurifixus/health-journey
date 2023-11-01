@@ -44,87 +44,91 @@ def calculate_bmi(height, weight):
 
 # Advice BMI:
 
-def generate_advice(bmi):
+def generate_advice(data):
+    bmi = calculate_bmi(data['height'], data['weight'])
+    advice_list = []
+
     if bmi < 18.5:
-        return "You are underweight. Consider consulting a nutritionist or a doctor."
+        advice = "You are underweight. Consider consulting a nutritionist or a doctor."
     elif 18.5 <= bmi < 24.9:
-        return "You have a normal weight. Maintain your healthy habits!"
+        advice = "You have a normal weight. Maintain your healthy habits!"
     elif 25 <= bmi < 29.9:
-        return "You are overweight. Consider adopting healthier eating habits and regular exercise."
+        advice = "You are overweight. Consider adopting healthier eating habits and regular exercise."
     else:
-        return "You are obese. It's important to consult a health professional."
+        advice = "You are obese. It's important to consult a health professional."
+        
+    # Advice on training habits:
+    if data['training_habits'] == "no":
+        if bmi < 18.5:
+            advice_list.append("Being underweight can be a concern. Focus on nutrition to ensure you're getting enough calories and nutrients. Consider consulting a nutritionist and starting with light exercises.")
+        elif bmi < 24.9:
+            advice_list.append("Regular exercise can benefit everyone, even if you're at a normal weight. Consider starting with light exercises.")
+        else:
+            advice_list.append("Given your BMI, regular exercise can greatly improve your health. Consider starting with light exercises.")
+    elif data['training_habits'] == "yes":
+        if bmi < 18.5:
+            advice_list.append("While exercise is great, your BMI indicates you might be underweight. It's essential to focus on nutrition to ensure you're getting enough calories and a balanced intake of nutrients. Consulting a nutritionist can be beneficial.")
+        elif bmi < 24.9:
+            advice_list.append("Awesome! Your active lifestyle is likely helping you maintain a healthy weight. Keep it up!")
+        else:
+            advice_list.append("Great job on keeping active! As you continue, consider workouts that focus on weight management.")
 
-# Advice on training habits:
-if data['training_habits'] == "no":
-    if bmi < 18.5:
-        advice_list.append("Being underweight can be a concern. Focus on nutrition to ensure you're getting enough calories and nutrients. Consider consulting a nutritionist and starting with light exercises.")
-    elif bmi < 24.9:
-        advice_list.append("Regular exercise can benefit everyone, even if you're at a normal weight. Consider starting with light exercises.")
-    else:
-        advice_list.append("Given your BMI, regular exercise can greatly improve your health. Consider starting with light exercises.")
-elif data['training_habits'] == "yes":
-    if bmi < 18.5:
-        advice_list.append("While exercise is great, your BMI indicates you might be underweight. It's essential to focus on nutrition to ensure you're getting enough calories and a balanced intake of nutrients. Consulting a nutritionist can be beneficial.")
-    elif bmi < 24.9:
-        advice_list.append("Awesome! Your active lifestyle is likely helping you maintain a healthy weight. Keep it up!")
-    else:
-        advice_list.append("Great job on keeping active! As you continue, consider workouts that focus on weight management.")
+    # Advice on steps per day:
+    if data['steps_per_day'] < 5000:
+        if bmi < 18.5:
+            advice_list.append("While increasing your steps can be beneficial for overall health, it's crucial to focus on nutrition if you choose to be more active. Given your BMI, ensure that you're consuming enough calories and nutrients. Consider consulting a nutritionist to maintain a balanced diet as you increase your physical activity.")
+        elif bmi < 24.9:
+            advice_list.append("Your step count is on the lower side, even though your BMI is in a healthy range. Aim to increase your daily steps for better cardiovascular health and energy levels.")
+        else:
+            advice_list.append("Given your BMI, increasing your step count can be beneficial for weight management. Consider setting a daily goal to motivate yourself.")
 
-# Advice on steps per day:
-if data['steps_per_day'] < 5000:
-    if bmi < 18.5:
-        advice_list.append("While increasing your steps can be beneficial for overall health, it's crucial to focus on nutrition if you choose to be more active. Given your BMI, ensure that you're consuming enough calories and nutrients. Consider consulting a nutritionist to maintain a balanced diet as you increase your physical activity.")
-    elif bmi < 24.9:
-        advice_list.append("Your step count is on the lower side, even though your BMI is in a healthy range. Aim to increase your daily steps for better cardiovascular health and energy levels.")
-    else:
-        advice_list.append("Given your BMI, increasing your step count can be beneficial for weight management. Consider setting a daily goal to motivate yourself.")
+    # Advice based on sugar consumption
+    if data['sugar_consumption'] in ['daily', 'weekly']:
+        if bmi < 18.5:
+            advice_list.append("Even though you might be tempted to consume more sugars for calories, it's essential to ensure you're getting those calories from nutritious sources. Excessive sugar intake can lead to various health issues in the long term. Focus on balanced nutrition.")
+        elif bmi < 24.9:
+            advice_list.append("Maintaining a healthy weight is great! However, high sugar intake can still pose risks to your overall health. Consider moderating your sugar consumption.")
+        else:
+            advice_list.append("High sugar intake can lead to various health issues, including exacerbating weight-related concerns. Reducing your sugar consumption can be beneficial for weight management and overall health.")
 
-# Advice based on sugar consumption
-if data['sugar_consumption'] in ['daily', 'weekly']:
-    if bmi < 18.5:
-        advice_list.append("Even though you might be tempted to consume more sugars for calories, it's essential to ensure you're getting those calories from nutritious sources. Excessive sugar intake can lead to various health issues in the long term. Focus on balanced nutrition.")
-    elif bmi < 24.9:
-        advice_list.append("Maintaining a healthy weight is great! However, high sugar intake can still pose risks to your overall health. Consider moderating your sugar consumption.")
-    else:
-        advice_list.append("High sugar intake can lead to various health issues, including exacerbating weight-related concerns. Reducing your sugar consumption can be beneficial for weight management and overall health.")
+    # Advice based on fast food consumption
+    if data['fast_food_consumption'] in ['daily', 'weekly']:
+        if bmi < 18.5:
+            advice_list.append("While you might see fast food as an easy source of calories given your BMI, it's crucial to ensure you're nourishing your body with quality nutrients. Regular fast food might not offer the best nutrition. Focus on more wholesome and balanced meals for better health.")
+        elif bmi < 24.9:
+            advice_list.append("Even if your weight is in a healthy range, frequent fast food can still impact your overall health negatively. It's good to indulge occasionally, but consider incorporating more balanced meals into your diet.")
+        else:
+            advice_list.append("High fast food intake can contribute to weight and related health issues. Reducing your fast food consumption can be beneficial for weight management and overall health.")
 
-# Advice based on fast food consumption
-if data['fast_food_consumption'] in ['daily', 'weekly']:
-    if bmi < 18.5:
-        advice_list.append("While you might see fast food as an easy source of calories given your BMI, it's crucial to ensure you're nourishing your body with quality nutrients. Regular fast food might not offer the best nutrition. Focus on more wholesome and balanced meals for better health.")
-    elif bmi < 24.9:
-        advice_list.append("Even if your weight is in a healthy range, frequent fast food can still impact your overall health negatively. It's good to indulge occasionally, but consider incorporating more balanced meals into your diet.")
-    else:
-        advice_list.append("High fast food intake can contribute to weight and related health issues. Reducing your fast food consumption can be beneficial for weight management and overall health.")
+    # Advice based on diet balance
+    if data['diet_balance'] == "no":
+        if bmi < 18.5:
+            advice_list.append("Your BMI indicates you might be underweight. A balanced diet is crucial not only for weight but also for overall health. Ensure you're consuming a variety of nutrients and consider consulting a nutritionist to guide you.")
+        elif bmi < 24.9:
+            advice_list.append("Even if your weight is in a healthy range, not having a balanced diet can lead to nutritional deficiencies and other health issues. Aim to include a variety of foods in your meals.")
+        else:
+            advice_list.append("Your BMI suggests that focusing on a balanced diet could be beneficial for weight management and overall well-being. Incorporating various nutrients can help you feel better and manage your weight.")
 
-# Advice based on diet balance
-if data['diet_balance'] == "no":
-    if bmi < 18.5:
-        advice_list.append("Your BMI indicates you might be underweight. A balanced diet is crucial not only for weight but also for overall health. Ensure you're consuming a variety of nutrients and consider consulting a nutritionist to guide you.")
-    elif bmi < 24.9:
-        advice_list.append("Even if your weight is in a healthy range, not having a balanced diet can lead to nutritional deficiencies and other health issues. Aim to include a variety of foods in your meals.")
-    else:
-        advice_list.append("Your BMI suggests that focusing on a balanced diet could be beneficial for weight management and overall well-being. Incorporating various nutrients can help you feel better and manage your weight.")
+    # Advice based on water consumption
+    if data['water_consumption'] == "no":
+        if bmi < 18.5:
+            advice_list.append("Your BMI suggests you might be underweight. Proper hydration is essential for metabolism and overall health. Ensure you're drinking enough water daily, especially if you decide to increase your caloric intake or physical activity.")
+        elif bmi < 24.9:
+            advice_list.append("Even if your weight is in a healthy range, staying hydrated is crucial for bodily functions and maintaining energy levels. Aim to drink at least 8 glasses of water daily.")
+        else:
+            advice_list.append("Proper hydration can help with weight management and overall health. Drinking enough water can aid in digestion and help you feel full. Aim to consistently hydrate throughout the day.")
 
-# Advice based on water consumption
-if data['water_consumption'] == "no":
-    if bmi < 18.5:
-        advice_list.append("Your BMI suggests you might be underweight. Proper hydration is essential for metabolism and overall health. Ensure you're drinking enough water daily, especially if you decide to increase your caloric intake or physical activity.")
-    elif bmi < 24.9:
-        advice_list.append("Even if your weight is in a healthy range, staying hydrated is crucial for bodily functions and maintaining energy levels. Aim to drink at least 8 glasses of water daily.")
-    else:
-        advice_list.append("Proper hydration can help with weight management and overall health. Drinking enough water can aid in digestion and help you feel full. Aim to consistently hydrate throughout the day.")
+    # Advice on sleep quality:
 
-# Advice on sleep quality:
+    # Advice based on sleep quality
+    if data['sleep_quality'] == "poor":
+        if bmi < 18.5:
+            advice_list.append("Your BMI suggests you might be underweight, and poor sleep can further affect your health and metabolism. It's essential to address any sleep issues and consider consulting a health professional for guidance.")
+        elif bmi < 24.9:
+            advice_list.append("Even if your weight is in a healthy range, poor sleep can impact your energy levels, mood, and overall health. Prioritize good sleep hygiene and consider seeking guidance if sleep issues persist.")
+        else:
+            advice_list.append("Your BMI and poor sleep quality can together impact your health significantly. Improving sleep can aid in weight management and overall well-being. It's important to consult a health professional.")
 
-# Advice based on sleep quality
-if data['sleep_quality'] == "poor":
-    if bmi < 18.5:
-        advice_list.append("Your BMI suggests you might be underweight, and poor sleep can further affect your health and metabolism. It's essential to address any sleep issues and consider consulting a health professional for guidance.")
-    elif bmi < 24.9:
-        advice_list.append("Even if your weight is in a healthy range, poor sleep can impact your energy levels, mood, and overall health. Prioritize good sleep hygiene and consider seeking guidance if sleep issues persist.")
-    else:
-        advice_list.append("Your BMI and poor sleep quality can together impact your health significantly. Improving sleep can aid in weight management and overall well-being. It's important to consult a health professional.")
+    return ' '.join(advice_list)
 
-return ' '.join(advice_list)
     
