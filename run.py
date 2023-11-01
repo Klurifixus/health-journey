@@ -41,5 +41,16 @@ return {
 }
 
 #Calculate BMI
+def calculate_bmi(height, weight):
+    return weight / (height ** 2)
 
-          
+#Generate Advice:
+def generate_advice(bmi):
+    if bmi < 18.5:
+        return "You are underweight. Consider consulting a nutritionist or a doctor."
+    elif 18.5 <= bmi < 24.9:
+        return "You have a normal weight. Maintain your healthy habits!"
+    elif 25 <= bmi < 29.9:
+        return "You are overweight. Consider adopting healthier eating habits and regular exercise."
+    else:
+        return "You are obese. It's important to consult a health professional."
