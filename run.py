@@ -11,7 +11,35 @@ SCOPE_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPE_CREDS)
 SHEET = GSPREAD_CLIENT.open("health_calculator")
 
-
+def store_data_to_sheet(data):
+    #Save data to Google-sheet
+    worksheet = SHEET.worksheet("health_calculator")
+    bmi =calculate_bmi(data['height'], data['weight'])
+    data_row = [
+        data['name'],
+        data['email'],
+        data['nationality'],
+        data['height'],
+        data['weight'],
+        bmi,
+        data['training_habits'],
+        data['steps_per_day'],
+        data['sugar_consumption'],
+        data['fast_food_consumption'],
+        data['diet_balance'],
+        data['water_consumption'],
+        data['sleep_quality']
+    ]
+    worksheet.append_row(data_row)
+    
+def main():
+    user_data = get_user_input()
+    store_data_to_sheet(user_data)
+    advice = generate_advice(user_data) #just displayng the advices
+    print(advice)
+    
+if __name__ == '__main__':
+    main()        
 
 def get_user_input():
     name = input("Enter your name: ")
