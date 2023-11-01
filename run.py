@@ -9,4 +9,4 @@ def get_user_input():
         else:
             print("Invalid email address. Please try again.")
 
-            
+nationality = input("Enter your nationality: ").capitalize()            
