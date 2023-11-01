@@ -53,7 +53,7 @@ def get_user_input():
 
     nationality = input("Enter your nationality: ").capitalize()  
 #Health questions
-    # Safe parsing for float and int inputs
+    
     while True:
         try:
             height = float(input("Enter your height in meters: "))
