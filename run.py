@@ -24,6 +24,22 @@ diet_balance = input("Do you eat a balanced diet? (yes/no): ").lower()
 water_consumption = input("Do you drink enough water? (yes/no): ").lower()
 sleep_quality = input("How's your sleep quality? (good/average/poor): ").lower()
 
+return {
+    'name': name,
+    'email': email,    
+    'nationality': nationality,
+    'height': height,
+    'weight': weight,
+    'training_habits': training_habits,
+    'steps_per_day': steps_per_day,
+    'sugar_consumption': sugar_consumption,
+    'fast_food_consumption': fast_food_consumption,
+    'diet_balance': diet_balance,
+    'water_consumption': water_consumption,
+    'sleep_quality': sleep_quality
+        
+}
 
 #Calculate BMI
+
           
