@@ -3,29 +3,89 @@ def get_user_input():
     email = None
     while True:
         email = input("Enter your email: ")
-        if "@" in email and "." in email:
+        if "@" in email and "." in email and email.find("@") <email.rfind('.'):
             break
         else:
             print("Invalid email address. Please try again.")
 
     nationality = input("Enter your nationality: ").capitalize()  
-
-    #Height and weight in numbers 
-    height = float(input("Enter your height in meters: "))
-    weight = float(input("Enter your weight in kilograms: "))
-
-    #Health questions
+#Health questions
+    # Safe parsing for float and int inputs
+    while True:
+        try:
+            height = float(input("Enter your height in meters: "))
+            if height > 0:
+                break
+            else:
+                print("Invalid height. Please try again.")
+        except ValueError:
+            print("Invalid height. Please enter your height in meters.")
+            
+    while True:
+        try:
+            weight = float(input("Enter your weight in kilograms: "))
+            if weight > 0:
+                break
+            else:
+                print("Invalid weight. Please try again.")
+        except ValueError:
+            print("Invalid weight. Please enter your weight in kilograms.")
+  
     training_habits = input("Do you have any training habits? (yes/no): ").lower()
-    steps_per_day = int(input("How many steps do you take on average per day? "))
-    sugar_consumption = input("How often do you consume sugar? (daily/weekly/monthly/rarely): ").lower()
-    fast_food_consumption = input("How often do you consume fast food? (daily/weekly/monthly/rarely): ").lower()
-    diet_balance = input("Do you eat a balanced diet? (yes/no): ").lower()
-    water_consumption = input("Do you drink enough water? (yes/no): ").lower()
-    sleep_quality = input("How's your sleep quality? (good/average/poor): ").lower()
+
+    while True:
+        try:
+            steps_per_day = int(input("How many steps do you take on average per day? "))
+            if steps_per_day >= 0:
+                break
+            else:
+                print("Please enter a valid number of steps.")
+        except ValueError:
+            print("Invalid input. Please enter an average number of steps per day.")
+    
+    # Validate sugar consumption input
+    while True:
+        sugar_consumption = input("How often do you consume sugar? (daily/weekly/monthly/rarely): ").lower()
+        if sugar_consumption in ['daily', 'weekly', 'monthly', 'rarely']:
+            break
+        else:
+            print("Invalid choice. Please select from daily, weekly, monthly, or rarely.")
+
+    # Validate fast food consumption input
+    while True:
+        fast_food_consumption = input("How often do you consume fast food? (daily/weekly/monthly/rarely): ").lower()
+        if fast_food_consumption in ['daily', 'weekly', 'monthly', 'rarely']:
+            break
+        else:
+            print("Invalid choice. Please select from daily, weekly, monthly, or rarely.")
+
+    # Validate diet balance input
+    while True:
+        diet_balance = input("Do you eat a balanced diet? (yes/no): ").lower()
+        if diet_balance in ['yes', 'no']:
+            break
+        else:
+            print("Invalid choice. Please select either 'yes' or 'no'.")
+
+    # Validate water consumption input
+    while True:
+        water_consumption = input("Do you drink enough water? (yes/no): ").lower()
+        if water_consumption in ['yes', 'no']:
+            break
+        else:
+            print("Invalid choice. Please select either 'yes' or 'no'.")
+
+    # Validate sleep quality input
+    while True:
+        sleep_quality = input("How's your sleep quality? (good/average/poor): ").lower()
+        if sleep_quality in ['good', 'average', 'poor']:
+            break
+        else:
+            print("Invalid choice. Please select from good, average, or poor.")
 
     return {
         'name': name,
-        'email': email,    
+        'email': email,
         'nationality': nationality,
         'height': height,
         'weight': weight,
