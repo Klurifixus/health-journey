@@ -1,6 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 
+#setup the credentials for the google sheet
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -12,16 +13,8 @@ GSPREAD_CLIENT = gspread.authorize(SCOPE_CREDS)
 SHEET = GSPREAD_CLIENT.open("health_calculator")
 
 def store_data_to_sheet(data):
-    try: 
-        SHEET.append_row(data)
-    except Exception as e:
-        print(f"An error occured while storing data to Google-sheet: {e}")
-        return False
-    return True
-    
-    #Save data to Google-sheet
-    worksheet = SHEET.worksheet("health_calculator")
-    bmi =calculate_bmi(data['height'], data['weight'])
+    worksheet = SHEET.get_worksheet(0)  
+    bmi = calculate_bmi(data['height'], data['weight'])
     data_row = [
         data['name'],
         data['email'],
@@ -37,16 +30,18 @@ def store_data_to_sheet(data):
         data['water_consumption'],
         data['sleep_quality']
     ]
-    worksheet.append_row(data_row)
+    try: 
+        worksheet.append_row(data_row) 
+    except Exception as e:
+        print(f"An error occurred while storing data to Google-sheet: {e}")
+        return False
+    return True
     
 def main():
     user_data = get_user_input()
     store_data_to_sheet(user_data)
     advice = generate_advice(user_data) #just displayng the advices
     print(advice)
-    
-if __name__ == '__main__':
-    main()        
 
 def get_user_input():
     name = input("Enter your name: ")
@@ -59,8 +54,8 @@ def get_user_input():
             print("Invalid email address. Please try again.")
 
     nationality = input("Enter your nationality: ").capitalize()  
-#Health questions
     
+#Health questions
     while True:
         try:
             height = float(input("Enter your height in meters: "))
@@ -228,8 +223,6 @@ def generate_advice(data):
         else:
             advice_list.append("Proper hydration can help with weight management and overall health. Drinking enough water can aid in digestion and help you feel full. Aim to consistently hydrate throughout the day.")
 
-    # Advice on sleep quality:
-
     # Advice based on sleep quality
     if data['sleep_quality'] == "poor":
         if bmi < 18.5:
@@ -241,4 +234,5 @@ def generate_advice(data):
 
     return ' '.join(advice_list)
 
-    
+if __name__ == '__main__':
+    main()     
