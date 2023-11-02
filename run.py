@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+import os
 
 #setup the credentials for the google sheet
 SCOPE = [
@@ -158,10 +159,10 @@ def calculate_bmi(height, weight):
 def generate_advice(data):
     bmi = calculate_bmi(data['height'], data['weight'])
     advice_list = []
-    
-    advice_list.append(f"Your BMI is {bmi:.1f}.")
 
-    #Determine BMI category
+    advice_list.append(f"Your BMI is {bmi:.1f}.\n")
+
+    # Determine BMI category
     if bmi < 18.5:
         advice_list.append("This is considered underweight.")
     elif 18.5 <= bmi < 24.9:
@@ -170,9 +171,9 @@ def generate_advice(data):
         advice_list.append("This is considered overweight.")
     else:
         advice_list.append("This is considered obese.")
-        
-    advice_list.append("Here are some advice you should consider: ")
-        
+
+    advice_list.append("\nHere are some pieces of advice you should consider:\n")
+
     # Advice on training habits:
     if data['training_habits'] == "no":
         if bmi < 18.5:
