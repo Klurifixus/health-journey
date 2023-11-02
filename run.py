@@ -153,15 +153,20 @@ def calculate_bmi(height, weight):
 def generate_advice(data):
     bmi = calculate_bmi(data['height'], data['weight'])
     advice_list = []
+    
+    advice_list.append(f"Your BMI is {bmi:.1f}.")
 
+    #Determine BMI category
     if bmi < 18.5:
-        advice = "You are underweight. Consider consulting a nutritionist or a doctor."
+        advice_list.append("This is considered underweight.")
     elif 18.5 <= bmi < 24.9:
-        advice = "You have a normal weight. Maintain your healthy habits!"
+        advice_list.append("This is considered a normal weight.")
     elif 25 <= bmi < 29.9:
-        advice = "You are overweight. Consider adopting healthier eating habits and regular exercise."
+        advice_list.append("This is considered overweight.")
     else:
-        advice = "You are obese. It's important to consult a health professional."
+        advice_list.append("This is considered obese.")
+        
+    advice_list.append("Here are some advice you should consider: ")
         
     # Advice on training habits:
     if data['training_habits'] == "no":
