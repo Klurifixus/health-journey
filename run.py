@@ -38,11 +38,16 @@ def store_data_to_sheet(data):
     return True
     
 def main():
-    user_data = get_user_input()
-    store_data_to_sheet(user_data)
-    os.system('cls' if os.name == 'nt' else 'clear')
-    advice = generate_advice(user_data) 
-    print(advice)
+    while True: #This is the main loop until the user wants to exit
+        user_data = get_user_input()
+        store_data_to_sheet(user_data)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        advice = generate_advice(user_data) 
+        print(advice)
+        # Ask if the user wants to run the test again
+        run_again = input("\nWould you like to run the program again? (yes/no): ").strip().lower()
+        if run_again != 'yes':
+            break #  no or else, test will exit
 
 def get_user_input():
     name = input("Enter your name: ")
