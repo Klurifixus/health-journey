@@ -41,7 +41,7 @@ def main():
     user_data = get_user_input()
     store_data_to_sheet(user_data)
     os.system('cls' if os.name == 'nt' else 'clear')
-    advice = generate_advice(user_data) #just displayng the advices
+    advice = generate_advice(user_data) 
     print(advice)
 
 def get_user_input():
