@@ -14,6 +14,7 @@ The Health Calculator is a Python-based application that calculates a user's Bod
 - [Credits](#credits)
 - [Contact](#contact)
 - [Constraints](#constraints)
+- [The Project Story](#the-project-story)
 
 ## Educational Use License
 
@@ -78,7 +79,7 @@ This application can be deployed to Heroku. Ensure you have the Heroku CLI insta
     * Run this command: heroku open
 
 ## Credits
-I would like to extend my gratitude to those who have contributed knowledge and advice towards the fruition of this project:
+I would like to extend my gratitude to those who have contributed knowledge and advice towards the creation of this project:
 
 * Hurtig, a cloud engineer and a good friend, for his guidance through challenging technical scenarios.
 
@@ -122,5 +123,14 @@ When creating your app on Heroku:
 
 4. Connect your GitHub repository and deploy
 
+## The Project Story
+To start the story of this project, I will let you know right from the beginning that because of my personality trait of wanting to perfect my vision, I lost track of the criteria for this project. My CLI turned into a web application, and if you have time or are simply wondering why this is so basic, I will provide a link to that below. But first, let me give you my story: I spent over a week building my first project, starting with envisioning how it would look, getting the git commits just right, and creating a structure and study plan for the project. I felt calm and really enjoyed the process. However, I made one mistake; I thought I knew what was asked of me, and in the process of learning Python and everything else, I used different study platforms. I used projects on YouTube and Udemy. My plan was to learn first, then tackle the project. When I felt more confident with Python, I was too eager to start, so I just scrolled through the criteria too fast and completely missed the importance of making a CLI.
 
+After coding for a couple of days and realizing that it was starting to work on Heroku, I sent an email to my mentor and David at the Code Institute. And I got the answer: you have built a web application and not a CLI; the templates you should have used are not there. Of course, that was because I deleted them when they didn't work with Flask. Anyway, this was 3 days ago, so I was in a bit of a hurry to create what I was supposed to do. That made me a little stressed, so my git commits suffered, and the programming was just thrown together—just to make it work and to pass the criteria. And God help me, I hope it will. In one way, I am grateful for my eagerness and mistake, because this has given me more education and knowledge. I truly feel that this education has made me confident to solve any problems I may face in the future, one way or another. And for that, I am always grateful and proud to be a Code Institute student. Because I wouldn't believe it if someone told me that I would be where I am today in coding in just a couple of weeks. And I have a long way to go, and I fucking love it!
 
+Anyhow, here is the links of this projects missdirection
+:
+
+https://vigorous-32e31799ae7b.herokuapp.com/
+
+https://github.com/Klurifixus/Vigorous
