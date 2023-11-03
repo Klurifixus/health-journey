@@ -2,27 +2,44 @@ import gspread
 from google.oauth2.service_account import Credentials
 import os
 
-#setup the credentials for the google sheet
+# Google Sheets API setup
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/drive"
-    ]
+]
+
+# Create a credentials object from the service account file 
 CREDS = Credentials.from_service_account_file('creds.json')
+# Create a scoped credentials object using the defined scope
 SCOPE_CREDS = CREDS.with_scopes(SCOPE)
+# Create a client for interacting with the Google Sheets API
 GSPREAD_CLIENT = gspread.authorize(SCOPE_CREDS)
+# Open the specified Google Sheet
 SHEET = GSPREAD_CLIENT.open("health_calculator")
 
+
 def store_data_to_sheet(data):
+    """
+    Store the user data into the first worksheet of the Google Sheet.
+
+    Parameters:
+        data (dict): A dictionary containing the user's health data.
+
+    Returns:
+        bool: True if data was stored successfully, False otherwise.
+    """
     worksheet = SHEET.get_worksheet(0)  
     bmi = calculate_bmi(data['height'], data['weight'])
     data_row = [
+        # Following the structure of the Google Sheet to append the row
         data['name'],
         data['email'],
         data['nationality'],
         data['height'],
         data['weight'],
         bmi,
+        # Additional user health data
         data['training_habits'],
         data['steps_per_day'],
         data['sugar_consumption'],
@@ -31,14 +48,31 @@ def store_data_to_sheet(data):
         data['water_consumption'],
         data['sleep_quality']
     ]
-    try: 
-        worksheet.append_row(data_row) 
-    except Exception as e:
-        print(f"An error occurred while storing data to Google-sheet: {e}")
-        return False
-    return True
+
+# helpfull area for user developers    
+try: 
+    worksheet.append_row(data_row)
+    return True 
+except gspread.exceptions.APIError as e:
+    print(f"APIError occurred: {e}")
+    # If available, prints out the http response
+    print(f"Response: {e.response}")  
+    # This will print the HTTP status code
+    print(f"Error code: {e.response.status_code}")  
+    return False
+except gspread.exceptions.GSpreadException as e:
+    print(f"GSpreadException occurred: {e}")
+    return False
+except Exception as e:
+    # A catch-all for any other exceptions that you didn't explicitly catch
+    print(f"An unexpected error occurred: {e}")
+    return False
     
 def main():
+    """
+    The main function to run the Health Calculator application.
+    """
+    
     while True: #This is the main loop until the user wants to exit
         user_data = get_user_input()
         store_data_to_sheet(user_data)
@@ -51,6 +85,12 @@ def main():
             break #  no or else, test will exit
 
 def get_user_input():
+    """
+    Collect user input for various health metrics and validate them.
+
+    Returns:
+    dict: A dictionary containing validated user input data.
+    """    
     name = input("Enter your name: ")
     email = None
     while True:
@@ -152,11 +192,30 @@ def get_user_input():
 
 #Calculate BMI
 def calculate_bmi(height, weight):
+    """
+    Calculate the Body Mass Index (BMI) based on height and weight.
+
+    Parameters:
+    height (float): Height of the user in meters.
+    weight (float): Weight of the user in kilograms.
+
+    Returns:
+    float: The calculated BMI.
+    """    
     return weight / (height ** 2)
 
 # Advice BMI:
 
 def generate_advice(data):
+    """
+    Generate personalized health advice based on the user's health data.
+
+    Parameters:
+    data (dict): A dictionary containing the user's health data, including BMI.
+
+    Returns:
+    str: A string of health advice.
+    """    
     bmi = calculate_bmi(data['height'], data['weight'])
     advice_list = []
 
@@ -238,4 +297,4 @@ def generate_advice(data):
     return '\n'.join(advice_list)
 
 if __name__ == '__main__':
-    main()     
+    main()
