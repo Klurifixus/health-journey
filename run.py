@@ -49,24 +49,14 @@ def store_data_to_sheet(data):
         data['sleep_quality']
     ]
 
-# helpfull area for user developers    
-try: 
-    worksheet.append_row(data_row)
-    return True 
-except gspread.exceptions.APIError as e:
-    print(f"APIError occurred: {e}")
-    # If available, prints out the http response
-    print(f"Response: {e.response}")  
-    # This will print the HTTP status code
-    print(f"Error code: {e.response.status_code}")  
-    return False
-except gspread.exceptions.GSpreadException as e:
-    print(f"GSpreadException occurred: {e}")
-    return False
-except Exception as e:
-    # A catch-all for any other exceptions that you didn't explicitly catch
-    print(f"An unexpected error occurred: {e}")
-    return False
+    # Append to ewcel row    
+    try: 
+        worksheet.append_row(data_row)
+        return True 
+    except Exception as e:
+        # A catch-all for any other exceptions that you didn't explicitly catch
+        print(f"An unexpected error occurred: {e}")
+        return False
     
 def main():
     """
