@@ -18,7 +18,7 @@ The Health Calculator is a Python-based application that calculates a user's Bod
 - [The Project Story](#the-project-story)
 - [Workflow chart](#workflow_chart)
 - [Black Varnings](#black-varnings)
-- [Python Checker](#python-checker)
+
 
 
 ## Educational Use License
@@ -158,5 +158,3 @@ https://github.com/Klurifixus/Vigorous
 ## Black Varnings
 ![Warnings when run black](assets/documentation/blackvarnings.png)
 
-## Python Checker
-![Python Checker](assets/documentation/pythonchecker.png)
