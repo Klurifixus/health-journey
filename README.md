@@ -134,3 +134,6 @@ Anyhow, here is the links of this projects missdirection
 https://vigorous-32e31799ae7b.herokuapp.com/
 
 https://github.com/Klurifixus/Vigorous
+
+## Workflow chart:
+![Flow Chart picture](assets/documentation/flowchart.png)
