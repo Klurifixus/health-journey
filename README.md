@@ -1,6 +1,7 @@
 # Health Calculator
 
 The Health Calculator is a Python-based application that calculates a user's Body Mass Index (BMI) and provides personalized health advice. It utilizes Google Sheets for data storage, which facilitates the easy tracking and analysis of health metrics over time.
+![Pictute of responsiveness](assets/documentation/amiresponsive.png)
 
 ## Table of Contents
 - [Educational Use License](#educational-use-license)
