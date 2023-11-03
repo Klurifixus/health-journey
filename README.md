@@ -60,6 +60,18 @@ Follow the interactive prompts to input your health data. The application will c
 * Personalized health advice tailored to the user's BMI and lifestyle inputs
 * Integration with Google Sheets for robust data management
 
+### Future features
+* Integration with Fitness Devices
+* User Account System
+* Advanced Data Visualization
+* PDF Export and Sharing
+* Mobile App Development
+
+## User Stories
+* Asked for fixing the fields for height to cm instead of meters.
+* Easier to fill in the questions (and that is on the way when it becomes a mobile app)
+
+
 ## Deploying to Heroku
 This application can be deployed to Heroku. Ensure you have the Heroku CLI installed and follow these steps:
 
@@ -148,5 +160,3 @@ https://github.com/Klurifixus/Vigorous
 
 ## Python Checker
 ![Python Checker](assets/documentation/pythonchecker.png)
-
-
