@@ -20,7 +20,6 @@ The Health Calculator is a Python-based application that calculates a user's Bod
 - [Contributing](#contributing)
 - [Credits](#credits)
 - [Contact](#contact)
-- [License Terms](#license-terms)
 
 
 ## Educational Use License
@@ -64,8 +63,8 @@ To install the Health Calculator:
 
 To use Health Calculator, run the following command in your terminal:
     * Run this command: 
-    ```sh
-    python run.py
+    ```
+    python3 run.py
     ```
 Follow the interactive prompts to input your health data. The application will calculate your BMI and output personalized health advice.    
 
@@ -83,15 +82,15 @@ Follow the interactive prompts to input your health data. The application will c
 * Mobile App Development
 
 ## User Stories
-1. Calculate BM:
-    * Is for a: health-conscious individual,
-    * Who want to easily calculate Body Mass Index (BMI),
-    * So they can quickly assess the general health status.
+1. Calculate BMI with Ease:
+As a health-conscious individual,
+I want a simple and convenient way to calculate my Body Mass Index (BMI),
+So that I can quickly gauge my overall health status without any hassle.
 
-2. Receive Custom Health Advice:    
-    * As someone looking to improve their lifestyle,
-    * Want to receive personalized health advice,
-    * So that they can make informed decisions about thier diet and exercise habits.
+2. Receive Personalized Health Insights:
+As someone committed to improving my lifestyle,
+I seek to receive tailored health advice based on my BMI and lifestyle inputs,
+Enabling me to make informed decisions about my diet and exercise routines.
 
 ## Constraints
 Keep in mind that the Heroku deployment terminal is set to 80 columns by 24 rows, so ensure your outputs are formatted to fit within this to prevent wrapping onto the next line.
@@ -99,11 +98,12 @@ Keep in mind that the Heroku deployment terminal is set to 80 columns by 24 rows
 ## Deployment
 This application can be deployed to Heroku. Ensure you have the Heroku CLI installed and an account on heroku.
 Here are some links you might need:
-    * https://signup.heroku.com/
-    * https://devcenter.heroku.com/articles/quick-start-heroku-connect
-    * https://devcenter.heroku.com/articles/github-integration
-    * https://devcenter.heroku.com/articles/heroku-cli
-    * https://devcenter.heroku.com/articles/buildpacks
+
+* https://signup.heroku.com/
+* https://devcenter.heroku.com/articles/quick-start-heroku-connect
+* https://devcenter.heroku.com/articles/github-integration
+* https://devcenter.heroku.com/articles/heroku-cli
+* https://devcenter.heroku.com/articles/buildpacks
 
 ### Follow these steps:
 
@@ -173,11 +173,31 @@ As I continue on my path as a developer, the lessons learned and the knowledge g
 
 ## Bugs and Issues
 ![Warnings when I run black](assets/documentation/blackvarnings.png)
-- There are a couple of problems that i would like to fix, i thought i had time and focus but in my situation at the moment i hardly can hear my self think. So i just add some of the problems that should be fixed if i had more time and focus:
-    1. A Python script that prompts the user to answer a question in the command line interface (CLI) by entering either 1, 2, or 3.
-    2. Minimum and maximum limit for height and weight.
-    3. Fixing the obvious issue on the picture above. (that would have been solved by 1.)
-    4. Function that checks if a given input is a valid country.
+- Enhancing User Input Validation:
+There's a need to improve the validation of user inputs.
+For example, ensuring that the program handles invalid responses gracefully, such as prompting the user to re-enter their data or providing clear error messages.
+
+- Setting Boundaries for Height and Weight:
+Consider implementing minimum and maximum limits for height and weight inputs to prevent unrealistic values that may affect BMI calculations.
+
+- Formatting and Style Issues:
+Address formatting and style issues in the codebase, as indicated by the warnings when running the black code formatter.
+These issues can affect code readability and maintainability.
+
+- Country Validation Functionality:
+Implement a function that checks whether a given input corresponds to a valid country name or code, ensuring accurate data collection.
+
+- Documentation Updates:
+Review and update the documentation to provide more detailed instructions for users and developers, including information on setting up and using the application effectively.
+
+- Enhancing User Experience:
+Consider improvements to the user interface to make the application more user-friendly and intuitive.
+
+- Testing and Quality Assurance:
+Conduct thorough testing to identify and fix any potential bugs or issues in the application.
+
+- Future Feature Considerations:
+Explore possibilities for integrating additional features, such as user accounts, advanced data visualization, and mobile app development, to enhance the overall functionality of the application.
 
 ## Contributing
 - Your contributions are welcome! For significant changes, please open an issue first to discuss what you'd like to change.
@@ -204,9 +224,6 @@ I would like to extend my gratitude to those who have contributed knowledge and 
 ## Contact
 If you have any questions or feedback, you can contact me on my email: [pirrefixus@gmail.com](mailto:pirrefixus@gmail.com)
 
-## License Terms
-
-- This project adheres to the Code Institute's stipulations for educational use. Redistribution or commercial use is under your responibility if used.
 
 
 
