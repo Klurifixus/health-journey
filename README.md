@@ -142,4 +142,7 @@ https://github.com/Klurifixus/Vigorous
 ## Black Varnings:
 ![Warnings when run black](assets/documentation/blackvarnings.png)
 
+## Python Checker:
+![Python Checker](assets/documentation/pythonchecker.png)
+
 
