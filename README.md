@@ -4,21 +4,23 @@ The Health Calculator is a Python-based application that calculates a user's Bod
 ![Pictute of responsiveness](assets/documentation/amiresponsive.png)
 
 ## Table of Contents
+
 - [Educational Use License](#educational-use-license)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Usage](#usage)
 - [Features](#features)
+- [User Stories](#user-stories)
+- [Constraints](#constraints)
+- [Deployment](#deployment)
+- [The Project Story](#the-project-story)
+- [Workflow Chart](#workflow-chart)
+- [Bugs and Issues](#bugs-and-issues)
 - [Contributing](#contributing)
-- [Deploying to Heroku](#deploying-to-heroku)
 - [Credits](#credits)
 - [Contact](#contact)
-- [Constraints](#constraints)
-- [The Project Story](#the-project-story)
-- [Workflow chart](#workflow_chart)
-- [Black Varnings](#black-varnings)
-
+- [License Terms](#license-terms)
 
 
 ## Educational Use License
@@ -29,9 +31,12 @@ This project was developed as a part of the Portfolio Project 3 (PP3) within the
 
 Before starting, ensure you have the following:
 
-- Python 3.x installed on your system
+- Python 3.x installed on your system:
+    https://www.python.org/downloads/
 - A Google Cloud Platform account with the Sheets API enabled
+    https://stateful.com/blog/google-sheets-api-tutorial
 - A `creds.json` file with your Google service account credentials
+    https://cloud.google.com/iam/docs/service-account-creds#:~:text=The%20Service%20Account%20Credentials%20API%20can%20create%20the,JSON%20Web%20Tokens%20%28JWTs%29%204%20Self-signed%20binary%20blobs
 
 ## Installation
 
@@ -40,18 +45,28 @@ To install the Health Calculator:
 1. Clone the repository to your local machine:
    ```sh
    git clone https://github.com/Klurifixus/health-journey.git
-   ´´´
+   ```
 
 ## Configurations
 
     1. Place your 'creds.json' file in the root directory of the project.
-    2. Open the 'creds.json' file and ensure it has the necessary permissions to access Google Sheets.
 
+    2. Open the 'creds.json' file and ensure it has the necessary permissions to access Google Sheets.
+        1. Enabling the Google Sheets API and obtaining creds.json:
+        2. Google Developers Console: Start by visiting the Google Developers Console.
+        3. Setting up a project: Here is a Google guide for setting up a project in the Google API Console.
+        4. Enable the API: You'll want to enable the Google Sheets API for your project. Google has documentation on enabling and disabling APIs.
+        5. Creating credentials: For creating credentials (which will get you the creds.json), Google provides a step-by-step guide on creating credentials.
+        6. Setting permissions in creds.json for Google Sheets:
+            - Google Sheets API Documentation: You can refer to the Google Sheets API Documentation for detailed information on authorizing requests and setting proper permissions.
+            - Google Cloud Documentation: Additionally, the Google Cloud Platform documentation on service account permissions can help you understand how to set permissions for your creds.json. 
 ## Usage
 
 To use Health Calculator, run the following command in your terminal:
-    * Run this command: python run.py
-
+    * Run this command: 
+    ```sh
+    python run.py
+    ```
 Follow the interactive prompts to input your health data. The application will calculate your BMI and output personalized health advice.    
 
 ## Features
@@ -68,32 +83,96 @@ Follow the interactive prompts to input your health data. The application will c
 * Mobile App Development
 
 ## User Stories
-* Asked for fixing the fields for height to cm instead of meters.
-* Easier to fill in the questions (and that is on the way when it becomes a mobile app)
+1. Calculate BM:
+    * Is for a: health-conscious individual,
+    * Who want to easily calculate Body Mass Index (BMI),
+    * So they can quickly assess the general health status.
 
+2. Receive Custom Health Advice:    
+    * As someone looking to improve their lifestyle,
+    * Want to receive personalized health advice,
+    * So that they can make informed decisions about thier diet and exercise habits.
 
-## Deploying to Heroku
+## Constraints
+Keep in mind that the Heroku deployment terminal is set to 80 columns by 24 rows, so ensure your outputs are formatted to fit within this to prevent wrapping onto the next line.
+
+## Deployment
 This application can be deployed to Heroku. Ensure you have the Heroku CLI installed and follow these steps:
 
 1. Log in to Heroku:
        
-    * Run this command: heroku login 
-    
+    * Run this command: 
+    ```sh
+    heroku login 
+    ```
 2. Create a new Heroku app:
     
-    * Run this command: heroku create
-
+    * Run this command: 
+    ```sh
+    heroku create
+    ```
 3. Push your code to Heroku:
     
-    * Run this command: git push heroku main
-
+    * Run this command: 
+    ```sh
+    git push heroku main
+    ```
 4. Ensure that at least one instance of the app is running:
     
-    * Run this command: heroku ps:scale web=1
-
+    * Run this command: 
+    ```sh
+    heroku ps:scale web=1
+    ```
 5. Open the app in your browser:
     
-    * Run this command: heroku open
+    * Run this command:
+    ```sh
+     heroku open
+    ```
+
+### Creating the Heroku app
+
+When creating your app on Heroku:
+1. Add the heroku/python and heroku/nodejs buildpacks from the Settings tab in the specified order.
+
+2. Create a Config Var named PORT and set it to '8000'.
+
+3. If you have credentials like creds.json, create a CREDS Config Var and paste the JSON contents into the value field.
+
+4. Connect your GitHub repository and deploy
+
+## The Project Story
+The development journey of the Health Calculator project has been a testament to the iterative and evolutionary nature of software development. Initially conceived as a command-line interface (CLI) application, the project ambitiously evolved into a web application due to my deep dive into a multitude of learning resources and my drive to exceed the project’s requirements. This exploration beyond the original scope not only reflects my passion for learning and development but also my commitment to delivering a comprehensive health tracking solution.
+
+In the early stages, I invested substantial effort in mastering Python through various platforms, including YouTube and Udemy courses. This preparatory phase was instrumental in solidifying my programming foundation. As the coding commenced, my focus was on creating a functional and user-friendly application that could empower users to monitor and enhance their health.
+
+The turning point came when, in consultation with my mentor and the Code Institute’s supportive community, it was brought to my attention that the project needed realignment with the original CLI specifications. The subsequent shift back to the CLI format was challenging and pressed for time. Despite the setback, the experience was enriching, serving as an incredible learning curve that sharpened my problem-solving skills and reinforced my adaptability as a developer.
+
+I am profoundly thankful for the constructive feedback and guidance received, which directed the project back to its intended course and helped shape it into the Health Calculator presented here. The valuable insights gained from this experience have undoubtedly broadened my technical expertise and my perspective on the software development lifecycle.
+
+As a testament to the growth and adaptability this project has demanded, I am proud to present the Health Calculator—a CLI application designed to offer insights into one’s well-being through BMI calculation and personalized health advice. It showcases the integration with Google Sheets, allowing users to track their health data systematically.
+
+For a glimpse into an alternative vision that took shape during this project's development, I invite you to view the web application iteration, which stands as a reminder of the project’s broader potential and my continuous journey in software development:
+
+https://vigorous-32e31799ae7b.herokuapp.com/
+
+https://github.com/Klurifixus/Vigorous
+
+As I continue on my path as a developer, the lessons learned and the knowledge gained from the Health Calculator project will remain an integral part of my professional repertoire. It is a reminder of where dedication and a willingness to embrace change can lead, and I am eager to carry these qualities forward into future endeavors.
+
+## Workflow chart
+![Flow Chart picture](assets/documentation/flowchart.png)
+
+## Bugs and Issues
+![Warnings when I run black](assets/documentation/blackvarnings.png)
+- There are a couple of problems that i would like to fix, i thought i had time and focus but in my situation at the moment i hardly can hear my self think. So i just add some of the problems that should be fixed if i had more time and focus:
+    1. A Python script that prompts the user to answer a question in the command line interface (CLI) by entering either 1, 2, or 3.
+    2. Minimum and maximum limit for height and weight.
+    3. Fixing the obvious issue on the picture above. (that would have been solved by 1.)
+    4. Function that checks if a given input is a valid country.
+
+## Contributing
+- Your contributions are welcome! For significant changes, please open an issue first to discuss what you'd like to change.
 
 ## Credits
 I would like to extend my gratitude to those who have contributed knowledge and advice towards the creation of this project:
@@ -117,44 +196,10 @@ I would like to extend my gratitude to those who have contributed knowledge and 
 ## Contact
 If you have any questions or feedback, you can contact me on my email: [pirrefixus@gmail.com](mailto:pirrefixus@gmail.com)
 
-## Constraints
-Keep in mind that the Heroku deployment terminal is set to 80 columns by 24 rows, so ensure your outputs are formatted to fit within this to prevent wrapping onto the next line.
-
-## Contributing
-- Your contributions are welcome! For significant changes, please open an issue first to discuss what you'd like to change.
-
 ## License Terms
 
-- This project adheres to the Code Institute's stipulations for educational use. Redistribution or commercial use is not permitted.
+- This project adheres to the Code Institute's stipulations for educational use. Redistribution or commercial use is under your responibility if used.
 
 
 
-## Creating the Heroku app
-
-When creating your app on Heroku:
-1. Add the heroku/python and heroku/nodejs buildpacks from the Settings tab in the specified order.
-
-2. Create a Config Var named PORT and set it to '8000'.
-
-3. If you have credentials like creds.json, create a CREDS Config Var and paste the JSON contents into the value field.
-
-4. Connect your GitHub repository and deploy
-
-## The Project Story
-To start the story of this project, I will let you know right from the beginning that because of my personality trait of wanting to perfect my vision, I lost track of the criteria for this project. My CLI turned into a web application, and if you have time or are simply wondering why this is so basic, I will provide a link to that below. But first, let me give you my story: I spent over a week building my first project, starting with envisioning how it would look, getting the git commits just right, and creating a structure and study plan for the project. I felt calm and really enjoyed the process. However, I made one mistake; I thought I knew what was asked of me, and in the process of learning Python and everything else, I used different study platforms. I used projects on YouTube and Udemy. My plan was to learn first, then tackle the project. When I felt more confident with Python, I was too eager to start, so I just scrolled through the criteria too fast and completely missed the importance of making a CLI.
-
-After coding for a couple of days and realizing that it was starting to work on Heroku, I sent an email to my mentor and David at the Code Institute. And I got the answer: you have built a web application and not a CLI; the templates you should have used are not there. Of course, that was because I deleted them when they didn't work with Flask. Anyway, this was 3 days ago, so I was in a bit of a hurry to create what I was supposed to do. That made me a little stressed, so my git commits suffered, and the programming was just thrown together—just to make it work and to pass the criteria. And God help me, I hope it will. In one way, I am grateful for my eagerness and mistake, because this has given me more education and knowledge. I truly feel that this education has made me confident to solve any problems I may face in the future, one way or another. And for that, I am always grateful and proud to be a Code Institute student. Because I wouldn't believe it if someone told me that I would be where I am today in coding in just a couple of weeks. And I have a long way to go, and I fucking love it!
-
-Anyhow, here is the links of this projects missdirection
-:
-
-https://vigorous-32e31799ae7b.herokuapp.com/
-
-https://github.com/Klurifixus/Vigorous
-
-## Workflow chart
-![Flow Chart picture](assets/documentation/flowchart.png)
-
-## Black Varnings
-![Warnings when run black](assets/documentation/blackvarnings.png)
 
