@@ -226,42 +226,42 @@ def generate_advice(data):
     # Advice on training habits:
     if data['training_habits'] == "no":
         if bmi < 18.5:
-            advice_list.append("Consider focusing on nutrition and consulting a nutritionist. Light exercises might also be beneficial.")
+            advice_list.append("Focus on nutrition and take walks for your health")
         elif bmi < 24.9:
-            advice_list.append("Consider incorporating regular, light exercises into your routine.")
+            advice_list.append("Consider incorporating regular training")
         else:
-            advice_list.append("Regular exercise can greatly improve your health. Consider starting with light exercises.")
+            advice_list.append("Regular exercise can greatly improve your health.")
 
     elif data['training_habits'] == "yes":
         if bmi < 18.5:
-            advice_list.append("Focus on nutrition along with exercise. Consider consulting a nutritionist.")
+            advice_list.append("Focus on nutrition along with exercise.")
         elif bmi < 24.9:
-            advice_list.append("Great job maintaining a healthy weight with an active lifestyle!")
+            advice_list.append("Great job maintaining a healthy weight!")
         else:
-            advice_list.append("Keep up the good work! Consider workouts focusing on weight management.")
+            advice_list.append("Consider workouts focusing on weight management.")
 
     # Advice on steps per day:
     if data['steps_per_day'] < 5000:
         if bmi < 18.5:
-            advice_list.append("Consider increasing steps and focusing on nutrition. Consult a nutritionist for a balanced diet.")
+            advice_list.append("Consult a nutritionist for a balanced lifestyle.")
         elif bmi < 24.9:
-            advice_list.append("Consider increasing your daily steps for enhanced cardiovascular health.")
+            advice_list.append("Consider increasing your daily steps.")
         else:
-            advice_list.append("Increase daily steps for better weight management. Set daily goals for motivation.")
+            advice_list.append("Increase daily steps for better weight management.")
 
     # Advice based on sugar consumption
     if data['sugar_consumption'] in ['daily', 'weekly']:
         if bmi < 18.5:
-            advice_list.append("Focus on calories from nutritious sources, moderate sugar intake for balanced nutrition.")
+            advice_list.append("Focus on calories from nutritious sources")
         elif bmi < 24.9:
-            advice_list.append("Maintain your weight with balanced nutrition. Consider reducing sugar intake.")
+            advice_list.append("Maintain your weight with balanced nutrition.")
         else:
-            advice_list.append("Consider reducing sugar intake for better weight management and overall health.")
+            advice_list.append("Reduce your sugar intake for better overall health.")
 
     # Advice based on fast food consumption
     if data['fast_food_consumption'] in ['daily', 'weekly']:
         if bmi < 18.5:
-            advice_list.append("Fast food may not offer the best nutrition. Consider a healthier diet.")
+            advice_list.append("Consider a healthier diet.")
         elif bmi < 24.9:
             advice_list.append("Consider reducing fast food for a more balanced diet.")
         else:

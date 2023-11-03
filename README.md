@@ -138,3 +138,8 @@ https://github.com/Klurifixus/Vigorous
 
 ## Workflow chart:
 ![Flow Chart picture](assets/documentation/flowchart.png)
+
+## Black Varnings:
+![Warnings when run black](assets/documentation/blackvarnings.png)
+
+
