@@ -97,7 +97,15 @@ Follow the interactive prompts to input your health data. The application will c
 Keep in mind that the Heroku deployment terminal is set to 80 columns by 24 rows, so ensure your outputs are formatted to fit within this to prevent wrapping onto the next line.
 
 ## Deployment
-This application can be deployed to Heroku. Ensure you have the Heroku CLI installed and follow these steps:
+This application can be deployed to Heroku. Ensure you have the Heroku CLI installed and an account on heroku.
+Here are some links you might need:
+    * https://signup.heroku.com/
+    * https://devcenter.heroku.com/articles/quick-start-heroku-connect
+    * https://devcenter.heroku.com/articles/github-integration
+    * https://devcenter.heroku.com/articles/heroku-cli
+    * https://devcenter.heroku.com/articles/buildpacks
+
+### Follow these steps:
 
 1. Log in to Heroku:
        
