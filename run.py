@@ -72,7 +72,7 @@ def main():
         # Ask if the user wants to run the test again
         run_again = input("\nWould you like to run the program again? (yes/no): ").strip().lower()
         if run_again != 'yes':
-            break #  no or else, test will exit
+            break 
 
 def get_user_input():
     """
@@ -92,7 +92,7 @@ def get_user_input():
 
     nationality = input("Enter your nationality: ").capitalize()  
     
-#Health questions
+    #Health questions
     while True:
         try:
             height = float(input("Enter your height in meters: "))
