@@ -32,11 +32,11 @@ This project was developed as a part of the Portfolio Project 3 (PP3) within the
 Before starting, ensure you have the following:
 
 - Python 3.x installed on your system:
-    https://www.python.org/downloads/
+    * https://www.python.org/downloads/
 - A Google Cloud Platform account with the Sheets API enabled
-    https://stateful.com/blog/google-sheets-api-tutorial
+    * https://stateful.com/blog/google-sheets-api-tutorial
 - A `creds.json` file with your Google service account credentials
-    https://cloud.google.com/iam/docs/service-account-creds#:~:text=The%20Service%20Account%20Credentials%20API%20can%20create%20the,JSON%20Web%20Tokens%20%28JWTs%29%204%20Self-signed%20binary%20blobs
+    * https://cloud.google.com/iam/docs/service-account-creds#:~:text=The%20Service%20Account%20Credentials%20API%20can%20create%20the,JSON%20Web%20Tokens%20%28JWTs%29%204%20Self-signed%20binary%20blobs
 
 ## Installation
 
