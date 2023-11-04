@@ -9,7 +9,7 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive"
 ]
 
-# Create a credentials object from the service account file 
+# Create a credentials object from the service account file
 CREDS = Credentials.from_service_account_file('creds.json')
 # Create a scoped credentials object using the defined scope
 SCOPE_CREDS = CREDS.with_scopes(SCOPE)
@@ -29,7 +29,7 @@ def store_data_to_sheet(data):
     Returns:
         bool: True if data was stored successfully, False otherwise.
     """
-    worksheet = SHEET.get_worksheet(0)  
+    worksheet = SHEET.get_worksheet(0)
     bmi = calculate_bmi(data['height'], data['weight'])
     data_row = [
         # Following the structure of the Google Sheet to append the row
@@ -49,31 +49,31 @@ def store_data_to_sheet(data):
         data['sleep_quality']
     ]
 
-    # Append to ewcel row    
-    try: 
+    # Append to ewcel row
+    try:
         worksheet.append_row(data_row)
-        return True 
+        return True
     except Exception as e:
         # A catch-all for any other exceptions that you didn't explicitly catch
         print(f"An unexpected error occurred: {e}")
         return False
-    
+
+
 def main():
     """
     The main function to run the Health Calculator application.
     """
-    
-    while True: #This is the main loop until the user wants to exit
+
+    while True:  # This is the main loop until the user wants to exit
         user_data = get_user_input()
         store_data_to_sheet(user_data)
         os.system('cls' if os.name == 'nt' else 'clear')
-        advice = generate_advice(user_data) 
+        advice = generate_advice(user_data)
         print(advice)
         # Ask if the user wants to run the test again
         run_again = input("\nWould you like to run the program again? (yes/no): ").strip().lower()
         if run_again != 'yes':
-            break 
-        
+            break
 
 
 def get_user_input():
@@ -82,19 +82,19 @@ def get_user_input():
 
     Returns:
     dict: A dictionary containing validated user input data.
-    """    
+    """
     name = input("Enter your name: ")
     email = None
     while True:
         email = input("Enter your email: ")
-        if "@" in email and "." in email and email.find("@") <email.rfind('.'):
+        if "@" in email and "." in email and email.find("@") < email.rfind('.'):
             break
         else:
             print("Invalid email address. Please try again.")
 
-    nationality = input("Enter your nationality: ").capitalize()  
-    
-    #Health questions
+    nationality = input("Enter your nationality: ").capitalize()
+
+    # Health questions
     while True:
         try:
             height = float(input("Enter your height in meters: "))
@@ -104,7 +104,7 @@ def get_user_input():
                 print("Invalid height. Please try again.")
         except ValueError:
             print("Invalid height. Please enter your height in meters.")
-            
+
     while True:
         try:
             weight = float(input("Enter your weight in kilograms: "))
@@ -114,8 +114,8 @@ def get_user_input():
                 print("Invalid weight. Please try again.")
         except ValueError:
             print("Invalid weight. Please enter your weight in kilograms.")
-  
-    training_habits = input("Do you have any training habits? (yes/no): ").lower()
+
+    training_habits = input("Do you have any training habits?(yes/no): ").lower()
 
     while True:
         try:
@@ -126,7 +126,7 @@ def get_user_input():
                 print("Please enter a valid number of steps.")
         except ValueError:
             print("Invalid input. Please enter an average number of steps per day.")
-    
+
     # Validate sugar consumption input
     while True:
         sugar_consumption = input("How often do you consume sugar? (daily/weekly/monthly/rarely): ").lower()
@@ -182,7 +182,9 @@ def get_user_input():
         'sleep_quality': sleep_quality
     }
 
-#Calculate BMI
+# Calculate BMI
+
+
 def calculate_bmi(height, weight):
     """
     Calculate the Body Mass Index (BMI) based on height and weight.
@@ -193,10 +195,11 @@ def calculate_bmi(height, weight):
 
     Returns:
     float: The calculated BMI.
-    """    
+    """
     return weight / (height ** 2)
 
 # Advice BMI:
+
 
 def generate_advice(data):
     """
@@ -207,7 +210,7 @@ def generate_advice(data):
 
     Returns:
     str: A string of health advice.
-    """    
+    """
     bmi = calculate_bmi(data['height'], data['weight'])
     advice_list = []
 
@@ -288,5 +291,6 @@ def generate_advice(data):
 
     return '\n'.join(advice_list)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
