@@ -175,6 +175,9 @@ As I continue on my path as a developer, the lessons learned and the knowledge g
 
 ## Bugs and Issues
 ![Warnings when I run black](assets/documentation/blackvarnings.png)
+![CI Python Linter test](assets/documentation/codelinter.png)
+https://pep8ci.herokuapp.com/#
+
 - Enhancing User Input Validation:
 There's a need to improve the validation of user inputs.
 For example, ensuring that the program handles invalid responses gracefully, such as prompting the user to re-enter their data or providing clear error messages.
