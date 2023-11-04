@@ -73,8 +73,9 @@ Follow the interactive prompts to input your health data. The application will c
 * Interactive collection of health and lifestyle data
 * Personalized health advice tailored to the user's BMI and lifestyle inputs
 * Integration with Google Sheets for robust data management
-![How information is logged in Excel](assets/documentation/excel.png)
+
 ![Picture on Health Calculator in Heroku](assets/documentation/herokutest.png)
+![How information is logged in Excel](assets/documentation/excel.png)
 
 ### Future features
 * Integration with Fitness Devices
